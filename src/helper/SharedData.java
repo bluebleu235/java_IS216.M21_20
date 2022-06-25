@@ -10,5 +10,5 @@ import model.NhanVien;
  * @author nhokk
  */
 public class SharedData {
-    public static NhanVien nguoiDangNhapNV;
+    public static NhanVien nguoiDangNhapNV; 
 }

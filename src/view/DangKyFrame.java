@@ -4,6 +4,12 @@
  */
 package view;
 
+import dao.NhanVienDao;
+import helper.DataValidator;
+import helper.MessageDialogHelper;
+import helper.SharedData;
+import model.NhanVien;
+
 /**
  *
  * @author nhokk
@@ -13,6 +19,8 @@ public class DangKyFrame extends javax.swing.JFrame {
     /**
      * Creates new form DangKyFrame
      */
+    private NhanVien nv;
+
     public DangKyFrame() {
         initComponents();
     }
@@ -140,11 +148,32 @@ public class DangKyFrame extends javax.swing.JFrame {
         DangNhapDialog dn = new DangNhapDialog();
         dn.setVisible(true);
         dn.setLocationRelativeTo(null);
-        this.dispose();      
+        this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
+        StringBuilder sb = new StringBuilder();
+        DataValidator.validateEmpty(txtUsername, sb, "Nhập tài khoản! ");
+        DataValidator.validateEmpty(txtPassword, sb, "Nhập mật khẩu! ");
+        NhanVienDao dao = new NhanVienDao();
+        if (new String(txtPassword1.getPassword()).equals(new String(txtPassword.getPassword())))
+        try {
+            {
+                DangNhapDialog dn = new DangNhapDialog();
+                dao.InsertNew(txtUsername.getText(), new String(txtPassword1.getPassword()));
+                dn.setVisible(true);
+                dn.setLocationRelativeTo(null);
+                this.dispose();
+                MessageDialogHelper.showMessageDialog(this, "Đăng ký thành công!", "Thông báo");
+            }
+        } catch (Exception e) { 
+            e.printStackTrace();
+            MessageDialogHelper.showErrorDialog(this, e.getMessage(), "Lỗi");
+        } else {
+            MessageDialogHelper.showErrorDialog(this, "Mật khẩu không giống nhau!", "Lỗi");
+        }
+
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

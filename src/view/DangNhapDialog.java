@@ -167,13 +167,13 @@ public class DangNhapDialog extends javax.swing.JDialog {
             NhanVien nv = dao.checkLogin(txtUsername.getText(), new String(txtPassword.getPassword()));
             if (nv != null) {
                 check = 1;
-
-                SharedData.nguoiDangNhapNV = nv;
+                
+                SharedData.nguoiDangNhapNV = dao.findById(txtUsername.getText());
                 NhanVienMainForm nvform = new NhanVienMainForm();
                 nvform.setVisible(true);
                 nvform.setLocationRelativeTo(null);
                 setVisible(false);
-
+                MessageDialogHelper.showMessageDialog(this, "Đăng nhập thành công!", "Thông báo");
             }
         } catch (Exception e) {
             e.printStackTrace();
