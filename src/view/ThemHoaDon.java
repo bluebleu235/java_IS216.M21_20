@@ -64,8 +64,6 @@ public class ThemHoaDon extends javax.swing.JDialog {
         btnHuy = new javax.swing.JButton();
         txtMaHD = new javax.swing.JTextField();
         btnThem = new javax.swing.JButton();
-        txtNgayHoaDon = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cbbKhachHang = new javax.swing.JComboBox<>();
@@ -92,16 +90,6 @@ public class ThemHoaDon extends javax.swing.JDialog {
             }
         });
 
-        txtNgayHoaDon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNgayHoaDonActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Ngày hóa đơn");
-        jLabel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray, null, null));
-
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Khách hàng");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray, null, null));
@@ -124,11 +112,9 @@ public class ThemHoaDon extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNgayHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addComponent(txtMaHD, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addComponent(cbbKhachHang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -150,15 +136,11 @@ public class ThemHoaDon extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(cbbKhachHang))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNgayHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -176,7 +158,7 @@ public class ThemHoaDon extends javax.swing.JDialog {
         try {
             hd = new HoaDon();
             hd.setMaHD(txtMaHD.getText());
-            hd.setNgayHoaDon(txtNgayHoaDon.getText());
+            hd.setNgayHoaDon(java.time.LocalDate.now().toString());
             hd.setTaiKhoanKH(cbbKhachHang.getSelectedItem().toString());
             hd.setTrangThai("Thanh toán");
             HoaDonDao dao = new HoaDonDao();
@@ -187,10 +169,6 @@ public class ThemHoaDon extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_btnThemActionPerformed
-
-    private void txtNgayHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayHoaDonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNgayHoaDonActionPerformed
 
     private void cbbKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbKhachHangActionPerformed
         // TODO add your handling code here:
@@ -306,9 +284,7 @@ public class ThemHoaDon extends javax.swing.JDialog {
     private javax.swing.JButton btnThem;
     private javax.swing.JComboBox<String> cbbKhachHang;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtMaHD;
-    private javax.swing.JTextField txtNgayHoaDon;
     // End of variables declaration//GEN-END:variables
 }

@@ -438,7 +438,7 @@ public class NhanVien_SanPham extends javax.swing.JPanel {
 
     private void btnThem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem1ActionPerformed
         try {
-        JasperReport rpt = JasperCompileManager.compileReport("src/report/SanPhamReport.jrxml");  
+        JasperReport rpt = JasperCompileManager.compileReport("src/report/HoaDonReport.jrxml");  
         
         JasperPrint p = JasperFillManager.fillReport(rpt, null, DatabaseHelper.openConnection());
         JasperViewer.viewReport(p, false);
