@@ -4,7 +4,12 @@
  */
 package view;
 
+import dao.HoaDonDao;
 import dao.KhachHangDao;
+import dao.ThongTinHoaDonDao;
+import java.util.ArrayList;
+import java.util.List;
+import model.HoaDon;
 import model.KhachHang;
 
 
@@ -111,9 +116,17 @@ public class XoaKhachHang extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        try {       
+        try {   
+            HoaDonDao dao1 = new HoaDonDao();
+            List<HoaDon> list = new ArrayList<>();
+            list = dao1.findByMaKH(kh.getTaiKhoanKH());
+            for (HoaDon it : list){
+                ThongTinHoaDonDao dao2 = new ThongTinHoaDonDao();
+                dao2.DeleteHD(it.getMaHD());
+        }
+            dao1.DeleteKH(kh.getTaiKhoanKH());
             KhachHangDao dao = new KhachHangDao();          
-            dao.Delete(kh);
+            dao.Delete(kh);        
             this.dispose();
         } catch (Exception e) {
             e.printStackTrace();

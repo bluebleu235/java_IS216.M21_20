@@ -134,6 +134,17 @@ public class HoaDonDao {
             return pstmt.executeUpdate() > 0;
         }
     }
+        
+        public boolean DeleteKH(String MaKH)
+            throws Exception {
+        String sql = "Delete From HoaDon Where taikhoanKH = ?";
+        try (
+                 Connection con = DatabaseHelper.openConnection(); //Statement statement = con.createStatement();
+                  PreparedStatement pstmt = con.prepareStatement(sql);) {
+            pstmt.setString(1, MaKH);
+            return pstmt.executeUpdate() > 0;
+        }
+    }
 
 
     private HoaDon createHoaDon(final ResultSet rs) throws SQLException {

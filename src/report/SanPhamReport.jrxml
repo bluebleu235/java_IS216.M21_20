@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="48d9b76b-7c2a-47e9-a367-bee1a4c1e9ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from sanpham]]>
+	</queryString>
+	<field name="MASP" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TEN" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LOAISANPHAM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DONGIA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SOLUONG" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="MASP_1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{MASP}]]></variableExpression>
+	</variable>
+	<variable name="SOLUONG_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{SOLUONG}]]></variableExpression>
+	</variable>
+	<variable name="DONGIA_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{DONGIA}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="187" y="14" width="211" height="43" uuid="1a685244-b2fb-4bdf-8f53-9fa01687a862"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="20"/>
+				</textElement>
+				<text><![CDATA[DANH SÁCH SẢN PHẨM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="82" splitType="Stretch">
+			<textField evaluationTime="Page">
+				<reportElement x="447" y="20" width="108" height="30" uuid="4f67bf71-3008-4ce5-a57f-84a5ef42725c"/>
+				<textElement>
+					<font fontName="Tahoma" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SOLUONG_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="20" width="139" height="30" uuid="844db333-ad57-42be-b53c-4c67b46fb694"/>
+				<textElement>
+					<font fontName="Tahoma" size="14"/>
+				</textElement>
+				<text><![CDATA[Số lượng sản phẩm:]]></text>
+			</staticText>
+			<textField evaluationTime="Page">
+				<reportElement x="199" y="20" width="109" height="30" uuid="cd81512c-4bcc-4ffd-a6ca-744ea439d771"/>
+				<textElement>
+					<font fontName="Tahoma" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{MASP_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="72" y="20" width="127" height="30" uuid="2a9f3e79-ba80-408a-9f42-dbb7d11b86bc"/>
+				<textElement>
+					<font fontName="Tahoma" size="14"/>
+				</textElement>
+				<text><![CDATA[Số loại sản phẩm:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="86" height="27" uuid="e5f2d28a-a53c-4248-86ce-959d9268a0ba"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Mã sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="0" width="150" height="27" uuid="5158b5f5-43d2-4672-a004-7f29dcd28de5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tên sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="2" width="133" height="25" uuid="ffcb0443-267c-4120-9487-7e153e84807a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Loại sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="0" width="109" height="27" uuid="37e860ac-0643-4e39-85dc-106e7445de40"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Đơn giá]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="0" width="78" height="27" uuid="cc4dff4c-0310-4570-a39f-08dd881e8031"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="86" height="28" uuid="1c69eaab-2e9f-48dc-806b-a638b2df0fae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{MASP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="1" width="150" height="27" uuid="64565acf-20e1-4333-8b28-45f2415c9778"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="1" width="133" height="27" uuid="6b6e5842-0ffa-4d4b-b111-68199ef6c19c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LOAISANPHAM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="2" width="109" height="27" uuid="bb9a6738-11bd-4fb0-a52f-6275467fc00b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{DONGIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="0" width="78" height="28" uuid="bc030192-853a-4c44-94ef-505e2049d4a1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{SOLUONG}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="46" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="49" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="96" splitType="Stretch"/>
+	</summary>
+</jasperReport>

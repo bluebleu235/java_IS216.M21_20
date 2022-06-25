@@ -5,11 +5,17 @@
 package view;
 
 import dao.SanPhamDao;
+import helper.DatabaseHelper;
 import helper.MessageDialogHelper;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 import model.SanPham;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -118,6 +124,7 @@ public class NhanVien_SanPham extends javax.swing.JPanel {
         btnThem = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
+        btnThem1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Filter1 = new javax.swing.JRadioButton();
         Filter2 = new javax.swing.JRadioButton();
@@ -171,12 +178,24 @@ public class NhanVien_SanPham extends javax.swing.JPanel {
             }
         });
 
+        btnThem1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnThem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Actions-document-edit-icon-16.png"))); // NOI18N
+        btnThem1.setText("In danh sách");
+        btnThem1.setBorder(null);
+        btnThem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThem1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(300, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnThem1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,6 +215,7 @@ public class NhanVien_SanPham extends javax.swing.JPanel {
                         .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnThem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(btnThem1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 30));
@@ -416,6 +436,17 @@ public class NhanVien_SanPham extends javax.swing.JPanel {
         loadDataToTable();
     }//GEN-LAST:event_FilterActionPerformed
 
+    private void btnThem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem1ActionPerformed
+        try {
+        JasperReport rpt = JasperCompileManager.compileReport("src/report/SanPhamReport.jrxml");  
+        
+        JasperPrint p = JasperFillManager.fillReport(rpt, null, DatabaseHelper.openConnection());
+        JasperViewer.viewReport(p, false);
+        } catch (Exception e){
+            
+        }
+    }//GEN-LAST:event_btnThem1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Filter;
@@ -425,6 +456,7 @@ public class NhanVien_SanPham extends javax.swing.JPanel {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnThem1;
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbbLoaiSP;
     private javax.swing.JPanel jPanel1;
