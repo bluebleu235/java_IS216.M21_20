@@ -91,6 +91,7 @@ public class ThongTinNhanVien extends javax.swing.JDialog {
             }
         });
 
+        txtTaiKhoan.setEditable(false);
         txtTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTaiKhoanActionPerformed(evt);

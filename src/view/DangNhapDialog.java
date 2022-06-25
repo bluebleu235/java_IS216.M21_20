@@ -173,7 +173,7 @@ public class DangNhapDialog extends javax.swing.JDialog {
                 nvform.setVisible(true);
                 nvform.setLocationRelativeTo(null);
                 setVisible(false);
-                MessageDialogHelper.showMessageDialog(this, "Đăng nhập thành công!", "Thông báo");
+                MessageDialogHelper.showMessageDialog(this, "Thông báo", "Đăng nhập thành công!");
             }
         } catch (Exception e) {
             e.printStackTrace();
