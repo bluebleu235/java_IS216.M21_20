@@ -2,9 +2,9 @@
 Đồ án môn Lập Trình JaVa nhóm 20 - Phần mềm quản lý cửa hàng bán quần áo
 
 ## Chức năng chính
-*Quản lý sản phẩm
-*Quản lý khách hàng
-*Quản lý đơn hàng
+Quản lý sản phẩm
+Quản lý khách hàng
+Quản lý đơn hàng
 
 ## Đối tượng người dùng
 Nhân viên cửa hàng: nhân viên bán hàng, nhập hàng
