@@ -2,10 +2,15 @@
 Đồ án môn Lập Trình JaVa nhóm 20 - Phần mềm quản lý cửa hàng bán quần áo
 
 ## Chức năng chính
-Quản lý sản phẩm
-Quản lý khách hàng
-Quản lý đơn hàng
+-Quản lý sản phẩm
+-Quản lý khách hàng
+-Quản lý đơn hàng
 
 ## Đối tượng người dùng
-Nhân viên cửa hàng: nhân viên bán hàng, nhập hàng
-Quản trị viên: chủ cửa hàng thay đổi thông tin nhân viên.
+-Nhân viên cửa hàng: nhân viên bán hàng, nhập hàng
+-Quản trị viên: chủ cửa hàng thay đổi thông tin nhân viên.
+## Công cụ sử dụng
+- Microsoft SQL Server Management Studio và MySqlServer (Mysql)
+- NetBean
+- Driver: ojdbc7.
+- iReport.
